@@ -8,22 +8,29 @@ The following game files were copied from [mashukui/web-games](https://github.co
 
 Bundled games:
 - 2048
+- Ant Flap
+- Ant Jump
 - Block Drop
 - Breakout
 - Checkers
 - Connect Four
 - Dino Run
+- Gem Match
 - Tower of Hanoi
 - Hoop Shot
 - Lights Out
 - Mancala
 - Memory Match
+- Merge Drop
 - Mini Golf
 - Nonogram
 - Paddle Duel
+- Pipe Connect
 - Simon Says
+- Stack Tower
 - Slide Puzzle
 - Sudoku
+- Water Sort
 
 The shared language file i18n.js is also from the upstream project. Game pages retain their upstream source and author references.
 
@@ -31,4 +38,4 @@ The shared language file i18n.js is also from the upstream project. Game pages r
 
 - These pages are hosted locally by Bluedee, but the site still needs an internet connection to load from GitHub Pages.
 - Locally hosted game pages use the shared i18n.js file.
-- Other titles in the Bluedee catalogue remain linked to their original providers; their files have not been copied into this repository.
+- Other titles in the Bluedee catalogue remain linked to their original providers because their game files are not part of this MIT-licensed bundle. Bluedee now provides an 'Open game on its site' fallback for providers that block embedding.
