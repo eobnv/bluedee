@@ -38,12 +38,18 @@ let category="All",favorites=new Set(JSON.parse(localStorage.getItem("bluedee-fa
 const search=document.getElementById("search"),grid=document.getElementById("gameGrid"),catalog=document.getElementById("catalog"),featured=document.getElementById("featuredRow");
 let gameTabs=[];let activeTabId="home";let tabCounter=0;
 function addTab(label,id,viewKey){const tab=document.createElement("button");tab.className="tab";tab.dataset.tabId=id;if(viewKey)tab.dataset.viewKey=viewKey;tab.innerHTML='<span class="tab-dot"></span>'+label+' <span class="tab-close">×</span>';document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));document.querySelector(".tabline").insertBefore(tab,document.getElementById("newTab"));tab.onclick=e=>{if(e.target.closest(".tab-close")){e.preventDefault();e.stopPropagation();const wasActive=activeTabId===id;const previous=tab.previousElementSibling;tab.remove();gameTabs=gameTabs.filter(x=>x.id!==id);if(wasActive){const target=previous&&previous.id!=="newTab"?previous:document.getElementById("homeTab");if(target&&target.dataset.tabId)activateTab(target.dataset.tabId);else if(target){activeTabId="home";setView("home")}}return}activateTab(id)};return tab}
-function activateTab(id){const tab=document.querySelector('.tab[data-tab-id="'+id+'"]');if(!tab)return;activeTabId=id;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===tab));const g=gameTabs.find(x=>x.id===id);if(g){document.getElementById("gameToolbarTitle").textContent="Playing: "+g.name;document.getElementById("openGameDirect").onclick=()=>window.open(g.url,"_blank","noopener");document.getElementById("home").style.display="none";document.getElementById("featuredSection").style.display="none";catalog.classList.remove("open");document.getElementById("footer").style.display="none";document.getElementById("gameStage").classList.add("open");const frame=document.getElementById("gameFrame");if(frame.dataset.tab!==id){frame.src=g.url;frame.dataset.tab=id}document.getElementById("addressText").textContent="bluedee / play / "+g.name;return}setView(tab.dataset.viewKey||"home",false)}
+function activateTab(id){const tab=document.querySelector('.tab[data-tab-id="'+id+'"]');if(!tab)return;activeTabId=id;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===tab));const g=gameTabs.find(x=>x.id===id);if(g){document.getElementById("gameToolbarTitle").textContent="Playing: "+g.name;document.getElementById("openGameDirect").onclick=()=>window.open(g.url,"_blank","noopener");document.getElementById("openGameDirect").textContent="Open game in a new tab ↗";document.getElementById("home").style.display="none";document.getElementById("featuredSection").style.display="none";catalog.classList.remove("open");document.getElementById("footer").style.display="none";document.getElementById("gameStage").classList.add("open");const frame=document.getElementById("gameFrame");if(frame.dataset.tab!==id){frame.src=g.url;frame.dataset.tab=id}document.getElementById("addressText").textContent="bluedee / play / "+g.name;return}setView(tab.dataset.viewKey||"home",false)}
 function openViewTab(view){const id="view-"+view+"-"+(++tabCounter);addTab(view[0].toUpperCase()+view.slice(1),id,view);setView(view,false);activeTabId=id;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tabId===id));return id}
 function launch(g){
- if(document.getElementById("launchMode").value==="blank"){const w=window.open("about:blank","_blank");if(w){const target=new URL(g[3],window.location.href).href;w.document.write('<!doctype html><title>'+g[0].replace(/[<>&"]/g,"") +'</title><iframe src="'+target.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'" style="position:fixed;inset:0;width:100%;height:100%;border:0" allow="fullscreen; autoplay; gamepad"></iframe>');w.document.close()}return}
-
- const id="game-"+(++tabCounter);gameTabs.push({id,name:g[0],url:g[3]});addTab(g[0],id);activateTab(id);
+ const target=new URL(g[3],window.location.href);
+ const localGame=target.origin===window.location.origin && target.pathname.includes("/games/");
+ const mode=document.getElementById("launchMode").value;
+ // Third-party sites commonly block iframe embedding. Open those directly so they can run.
+ if(mode==="blank" || !localGame){window.open(target.href,"_blank","noopener");return}
+ const id="game-"+(++tabCounter);
+ gameTabs.push({id,name:g[0],url:target.href});
+ addTab(g[0],id);
+ activateTab(id);
 }
 let currentView="home";
 function setView(view,updateActive=true,selectedCategory=null){
