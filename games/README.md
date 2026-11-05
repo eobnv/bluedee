@@ -1,6 +1,6 @@
-# Hosted Bluedee games
+# Bluedee games
 
-These 48 games are bundled in this repository so Bluedee can serve them itself instead of relying on another site.
+These 48 games are bundled in this repository, so Bluedee serves all of them itself and never relies on another site.
 
 ## Source and licence
 
@@ -20,4 +20,3 @@ All game pages and the shared language file `i18n.js` come from [mashukui/web-ga
 
 - These pages load nothing from other sites, so they keep working when opened in an `about:blank` tab. The page that contains them still has to be served from the Bluedee site.
 - Games save their scores and settings in your browser's local storage.
-- Every other title in the Bluedee catalog is only linked, not hosted, because its files are not part of this MIT-licensed bundle.
