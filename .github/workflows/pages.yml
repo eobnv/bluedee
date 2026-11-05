@@ -1,4 +1,4 @@
-name: Deploy GameHub to GitHub Pages
+name: Deploy Bluedee to GitHub Pages
 
 on:
   push:
