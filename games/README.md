@@ -1,41 +1,23 @@
-# Self-hosted Bluedee games
+# Hosted Bluedee games
 
-These game pages are bundled in this repository so Bluedee can serve them from its own GitHub Pages site rather than relying on the original game host.
+These 48 games are bundled in this repository so Bluedee can serve them itself instead of relying on another site.
 
-## Third-party source and licence
+## Source and licence
 
-The following game files were copied from [mashukui/web-games](https://github.com/mashukui/web-games), by mashukui. The upstream project publishes them under the MIT License; the original licence text is preserved in [LICENSE](./LICENSE).
+All game pages and the shared language file `i18n.js` come from [mashukui/web-games](https://github.com/mashukui/web-games), by mashukui, which publishes them under the MIT License. The original licence text is kept in [LICENSE](./LICENSE). Each game page keeps its author credit.
 
-Bundled games:
-- 2048
-- Ant Flap
-- Ant Jump
-- Block Drop
-- Breakout
-- Checkers
-- Connect Four
-- Dino Run
-- Gem Match
-- Tower of Hanoi
-- Hoop Shot
-- Lights Out
-- Mancala
-- Memory Match
-- Merge Drop
-- Mini Golf
-- Nonogram
-- Paddle Duel
-- Pipe Connect
-- Simon Says
-- Stack Tower
-- Slide Puzzle
-- Sudoku
-- Water Sort
+## Games
 
-The shared language file i18n.js is also from the upstream project. Game pages retain their upstream source and author references.
+2048, Air Hockey, Ant Flap, Ant Jump, Balloon Pop, Battleship, Block Drop, Bowling, Breakout, Bubble Shooter, Checkers, Connect Four, Cross Road, Dino Run, Fruit Slice, Gem Match, Gomoku, Tower of Hanoi, Helicopter, Helix Drop, Hoop Shot, Lights Out, Mahjong Link, Mancala, Maze Muncher, Memory Match, Merge Drop, Minesweeper, Mini Golf, Nonogram, Paddle Duel, Penalty Kick, Piano Tap, Pipe Connect, Reversi, Rush Hour, Simon Says, Slide Puzzle, Slingshot, Snake, Snakes and Ladders, Sokoban, Stack Tower, Star Defender, Sudoku, Tic-Tac-Toe, Water Sort, Whack-a-Mole.
+
+## Changes made to the upstream files
+
+- **Analytics turned off.** In `i18n.js`, `GC_SITE` is set to an empty string, which is upstream's documented way to disable its visitor counter. Nothing is loaded and nothing is sent.
+- **"More games" link.** It now returns to the Bluedee home page (`../../`) and leaves the game frame, instead of pointing at the upstream collection's index.
+- **Promo removed.** The footer link to an unrelated video-downloader site was removed from every game page. The author credit and the link to the upstream GitHub project are kept.
 
 ## Notes
 
-- These pages are hosted locally by Bluedee, but the site still needs an internet connection to load from GitHub Pages.
-- Locally hosted game pages use the shared i18n.js file.
-- Other titles in the Bluedee catalogue remain linked to their original providers because their game files are not part of this MIT-licensed bundle. Bluedee now provides an 'Open game on its site' fallback for providers that block embedding.
+- These pages load nothing from other sites, so they keep working when opened in an `about:blank` tab. The page that contains them still has to be served from the Bluedee site.
+- Games save their scores and settings in your browser's local storage.
+- Every other title in the Bluedee catalog is only linked, not hosted, because its files are not part of this MIT-licensed bundle.
