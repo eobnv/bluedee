@@ -4,12 +4,11 @@ A browser-game library with a tabbed, browser-style layout. Search for a game, b
 
 ## Features
 
-- **90 games.** 48 are hosted in this repository and 42 link out to their original sites.
-- **Hosted games keep working.** They live in [`games/`](./games), load nothing from other sites, and also run from an `about:blank` tab.
-- **Search and categories:** Arcade, Puzzle, Racing, Sports, Classic and Sandbox.
+- **48 games, all hosted in this repository.** They live in [`games/`](./games), load nothing from other sites, and also run from an `about:blank` tab.
+- **Search and categories:** Arcade, Puzzle, Sports and Classic.
 - **Favorites** are saved in your browser's local storage.
 - **Four themes:** Light, Graphite, Midnight and Monochrome.
-- **Open games** either inside the site (in a tab) or in a new `about:blank` tab, using the selector at the top right. Linked games always open in a normal new tab, because most sites block being embedded.
+- **Open games** either inside the site (in a tab) or in a new `about:blank` tab, using the selector at the top right.
 - **No analytics or tracking.**
 
 ## Run it locally
@@ -34,8 +33,4 @@ Pushing to `main` publishes the site to GitHub Pages using [`.github/workflows/p
 
 ## Hosted games and licences
 
-The 48 hosted games and the shared `i18n.js` come from [mashukui/web-games](https://github.com/mashukui/web-games), released under the MIT License. The licence text is kept in [`games/LICENSE`](./games/LICENSE), and each game page keeps its author credit. See [`games/README.md`](./games/README.md) for the list and for the small changes made to the upstream files.
-
-## Linked games
-
-The other 42 games are hosted by their original providers. Bluedee only links to them, so a link may stop working or change at any time, and Bluedee has no control over those sites.
+The 48 games and the shared `i18n.js` come from [mashukui/web-games](https://github.com/mashukui/web-games), released under the MIT License. The licence text is kept in [`games/LICENSE`](./games/LICENSE), and each game page keeps its author credit. See [`games/README.md`](./games/README.md) for the list and for the small changes made to the upstream files.
