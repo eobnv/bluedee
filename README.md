@@ -9,7 +9,7 @@ A browser-game library with a tabbed, browser-style layout. Search for a game, b
 - **Search and categories:** Arcade, Puzzle, Racing, Sports, Classic and Sandbox.
 - **Favorites** are saved in your browser's local storage.
 - **Four themes:** Light, Graphite, Midnight and Monochrome.
-- **Open games** either inside the site (in a tab) or in a new `about:blank` tab, using the selector at the top right. Linked games always open in a normal new tab, because most sites block being embedded.
+- **Open games** either inside the site (in a tab) or in a new `about:blank` tab, using the selector at the top right. Linked games open the same way, but some sites refuse to be shown inside another page. For those, use the **Open game in a new tab** button (or the button shown in the about:blank tab).
 - **No analytics or tracking.**
 
 ## Run it locally
@@ -38,4 +38,4 @@ The 48 hosted games and the shared `i18n.js` come from [mashukui/web-games](http
 
 ## Linked games
 
-The other 42 games are hosted by their original providers. Bluedee only links to them, so a link may stop working or change at any time, and Bluedee has no control over those sites.
+The other 42 games are hosted by their original providers. Bluedee only links to them, so a link may stop working or change at any time, and Bluedee has no control over those sites. Sites that block embedding will show a blank or "refused to connect" frame; only hosting a game here (when its licence allows) makes it work everywhere.
